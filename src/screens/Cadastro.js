@@ -1,9 +1,12 @@
 import React, {useState} from "react";
 import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet, Button } from "react-native";
 import api from '../axios/axios'
+import {useNavigation} from "@react-navigation/native";
 
-export default function Cadastro({ navigation }){
+export default function Cadastro(){
+    const navigation = useNavigation();
     const [user, setUser] = useState ({ 
+
         cpf: "",
         email:"",
         password: "",
@@ -26,7 +29,7 @@ export default function Cadastro({ navigation }){
         <Text style={styles.title}> Faça Cadastro</Text>
         <TextInput 
         style={styles.input}
-        placeholder="cpf"
+        placeholder="Cpf"
         value={user.cpf}
         onChangeText={(value)=> {
             setUser({...user, cpf: value});
@@ -65,7 +68,7 @@ export default function Cadastro({ navigation }){
         }}
         />
         <TouchableOpacity onPress={handleCadastro} style={styles.button}>
-            <Text>cadastrar</Text>
+            <Text>Cadastrar</Text>
         </TouchableOpacity>
         <Button title="Voltar para login" onPress={()=> navigation.navigate("Login")}/>
         </View>
