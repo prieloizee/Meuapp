@@ -8,8 +8,8 @@ import CadastroIngresso from "./screens/CadastroIngresso";
 import Login from "./screens/Login";
 import Cadastro from "./screens/Cadastro";
 import Layout from "./components/Layout";
-import TaskList from "./screens/TaskList";
-import TaskDetail from "./screens/TaskDetail";
+//import TaskList from "./screens/TaskList";
+//import TaskDetail from "./screens/TaskDetail";
 import EventosScreen from "./screens/EventosScreen";
 
 const Stack = createStackNavigator();
@@ -18,17 +18,6 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown:false}}>
-        {/* <Stack.Screen 
-        name="TaskList" 
-        component={TaskList}
-        />
-
-        <Stack.Screen 
-        name="TaskDetail" 
-        component={TaskDetail}
-        /> */}
-
-
         <Stack.Screen
           name="Login"
           component={() => (
@@ -49,6 +38,7 @@ export default function App() {
         <Stack.Screen name="CadastroEvento" component={CadastroEvento} />
         <Stack.Screen name="CadastroOrganizador"component={CadastroOrganizador}/>
         <Stack.Screen name="CadastroIngresso" component={CadastroIngresso} />
+        
         <Stack.Screen name="EventosScreen">{()=>(
           <Layout>
             <EventosScreen/>
