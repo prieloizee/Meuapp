@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     },
     itemCard:{
         padding:15,
-        backgroundColor:"pink",
+        backgroundColor:"purple",
         marginBottom: 10,
         borderRadius: 8,
     }

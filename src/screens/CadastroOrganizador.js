@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { View,Text, TextInput, TouchableOpacity, Alert, StyleSheet, Button,
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  Alert,
+  StyleSheet,
+  Button,
 } from "react-native";
 import api from "../axios/axios";
 
@@ -88,7 +95,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   button: {
-    backgroundColor: "orange",
+    backgroundColor: "purple",
     padding: 10,
     borderRadius: 5,
   },

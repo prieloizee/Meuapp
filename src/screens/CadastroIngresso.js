@@ -71,7 +71,7 @@ export default function CadastroIngresso({navigation}){
         paddingHorizontal:10
     },
     button:{
-        backgroundColor: 'orange',
+        backgroundColor: 'purple',
         padding:10,
         borderRadius:5
     }
