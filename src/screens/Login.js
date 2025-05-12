@@ -3,6 +3,7 @@ import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet, Button } fr
 import api from '../axios/axios'
 import {Ionicons} from '@expo/vector-icons';
 import { useNavigation } from "@react-navigation/native"
+import * as SecureStore from 'expo-secure-store';
 
 export default function Login({  }){
     const navigation = useNavigation();
@@ -12,10 +13,16 @@ export default function Login({  }){
         showPassword:false
     });
 
+    async function saveToken(token){
+        await SecureStore.setItemAsync("token", token)
+        console.log(token);
+    }
+
     async function handleLogin(){
         await api.postLogin(user).then(
             (response)=>{
                 Alert.alert("OK", response.data.message);
+                saveToken(response.data.token)
             navigation.navigate("EventosScreen");
             },(error)=>{
                 Alert.alert('Erro',error.response.data.error)
