@@ -12,6 +12,7 @@ import Layout from "./components/Layout";
 //import TaskDetail from "./screens/TaskDetail";
 import EventosScreen from "./screens/EventosScreen";
 
+
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -34,7 +35,9 @@ export default function App() {
             </Layout>
           )}
         />
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen 
+        name="Home" 
+        component={Home} />
         <Stack.Screen name="CadastroEvento" component={CadastroEvento} />
         <Stack.Screen name="CadastroOrganizador"component={CadastroOrganizador}/>
         <Stack.Screen name="CadastroIngresso" component={CadastroIngresso} />

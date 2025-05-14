@@ -1,3 +1,4 @@
+import api from "../axios/axios";
 import React, { useState } from "react";
 import {
   View,
@@ -8,10 +9,10 @@ import {
   StyleSheet,
   Button,
 } from "react-native";
-import api from "../axios/axios";
+import DateTimePicker from "../components/DateTimePicker";
 
 export default function CadastroEvento({ navigation }) {
-  const [evento, setUser] = useState({
+  const [evento, setEvento] = useState({
     nome: "",
     descricao: "",
     data_hora: "",
@@ -31,6 +32,7 @@ export default function CadastroEvento({ navigation }) {
   }
 
   return (
+
     <View style={styles.container}>
       <Text style={styles.title}> Cadastre seu evento</Text>
       <TextInput
@@ -49,14 +51,7 @@ export default function CadastroEvento({ navigation }) {
           setUser({ ...evento, descricao: value });
         }}
       />
-      <TextInput
-        style={styles.input}
-        placeholder="Data e hora"
-        value={evento.data_hora}
-        onChangeText={(value) => {
-          setUser({ ...evento, data_hora: value });
-        }}
-      />
+      
       <TextInput
         style={styles.input}
         placeholder="Local"
@@ -72,6 +67,16 @@ export default function CadastroEvento({ navigation }) {
         onChangeText={(value) => {
           setUser({ ...evento, fk_id_organizador: value });
         }}
+      />
+      <DateTimePicker
+      type={"datetime"}
+      buttonTitle={
+        evento.data_hora === ""
+        ? "Selecione a data do evento"
+        : evento.data_hora.toLocaleString()
+      }
+      setValue={setEvento}
+      dateKey={"data_hora"}
       />
       <TouchableOpacity
         onPress={handleCadastroEvento}
@@ -104,7 +109,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   button: {
-    backgroundColor: "pink",
+    backgroundColor: "#bd6fbd",
     padding: 10,
     borderRadius: 5,
   },
